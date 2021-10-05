@@ -1,9 +1,23 @@
 class TaskModel {
   String title;
-  String detail;
+  bool complete;
+
+  TaskModel({
+    required this.title,
+    this.complete = false,
+  });
 
   String get getTitle => title;
-  String get getDetail => detail;
+  bool get getComplete => complete;
 
-  TaskModel(this.title, this.detail);
+  TaskModel.fromMap(Map map)
+      : this.title = map['title'],
+        this.complete = map['complete'];
+
+  Map toMap() {
+    return {
+      'title': this.title,
+      'complete': this.complete,
+    };
+  }
 }
