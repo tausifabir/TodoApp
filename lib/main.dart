@@ -40,10 +40,6 @@ class _State extends State<HomePage> {
     // TODO: implement initState
 
     initializeSharedPreferences();
-    taskList.add(TaskModel(title: "Task1"));
-    taskList.add(TaskModel(title: "Task2"));
-    taskList.add(TaskModel(title: "Task3"));
-    taskList.add(TaskModel(title: "Task4"));
     super.initState();
   }
 
