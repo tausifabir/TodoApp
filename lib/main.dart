@@ -62,20 +62,10 @@ class _State extends State<HomePage> {
             ),
           )
         ],
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white70,
-          ),
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return CompletedTask();
-            }));
-          },
-        ),
       ),
       body: taskList.isNotEmpty ? buildBody() : buildNotBody(),
       floatingActionButton: FloatingActionButton(
+        key: Key("floatingBtn"),
         child: Icon(Icons.add),
         backgroundColor: Colors.purple,
         onPressed: () => addToTasks(),
@@ -111,8 +101,9 @@ class _State extends State<HomePage> {
       child: ListTile(
         title: Text(item.title),
         trailing: Checkbox(
+          key: Key("checkBox"),
           value: item.complete,
-          onChanged: null,
+          onChanged: (val){},
           activeColor: Colors.purple,
         ),
         onTap: () => setCompleteness(item),
@@ -161,12 +152,12 @@ class _State extends State<HomePage> {
       );
     })).then((title) {
       if (title != null) {
-        editTaskitem(item, title);
+        editTaskItem(item, title);
       }
     });
   }
 
-  void editTaskitem(TaskModel item, title) {
+  void editTaskItem(TaskModel item, title) {
     item.title = title;
     saveSharedPreferences();
   }

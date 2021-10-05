@@ -29,6 +29,7 @@ class _State extends State<AddTaskView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
+              key: Key("createTask"),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Create Task',
@@ -38,6 +39,7 @@ class _State extends State<AddTaskView> {
               onEditingComplete: () => save(),
             ),
             TextButton(
+              key: Key("saveBtn"),
                 onPressed: () => save(),
                 child: Text(
                   "Save",
